@@ -1,0 +1,45 @@
+2020-01-22 10:13:52,334 INFO: Microblog startup [in /Users/headshot/microblog/app/__init__.py:48]
+2020-01-22 16:48:33,392 INFO: Microblog startup [in /Users/headshot/microblog/app/__init__.py:53]
+2020-01-22 16:48:44,195 ERROR: Exception on / [GET] [in /Users/headshot/microblog/venv/lib/python3.7/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/Users/headshot/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/headshot/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/headshot/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/headshot/microblog/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/headshot/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/headshot/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/headshot/microblog/venv/lib/python3.7/site-packages/flask_login/utils.py", line 260, in decorated_view
+    return current_app.login_manager.unauthorized()
+  File "/Users/headshot/microblog/venv/lib/python3.7/site-packages/flask_login/login_manager.py", line 162, in unauthorized
+    if self.login_message:
+  File "/Users/headshot/microblog/venv/lib/python3.7/site-packages/flask_babel/speaklater.py", line 26, in __len__
+    return len(text_type(self))
+  File "/Users/headshot/microblog/venv/lib/python3.7/site-packages/flask_babel/speaklater.py", line 23, in __str__
+    return text_type(self._func(*self._args, **self._kwargs))
+  File "/Users/headshot/microblog/venv/lib/python3.7/site-packages/flask_babel/__init__.py", line 552, in gettext
+    t = get_translations()
+  File "/Users/headshot/microblog/venv/lib/python3.7/site-packages/flask_babel/__init__.py", line 227, in get_translations
+    [get_locale()],
+  File "/Users/headshot/microblog/venv/lib/python3.7/site-packages/flask_babel/__init__.py", line 257, in get_locale
+    rv = babel.locale_selector_func()
+  File "/Users/headshot/microblog/app/__init__.py", line 57, in get_locale
+    return request.accept_languages.best_match(app.config['LANGUAGES'])
+NameError: name 'request' is not defined
+2020-01-22 16:49:45,164 INFO: Microblog startup [in /Users/headshot/microblog/app/__init__.py:53]
+2020-01-22 16:50:29,087 INFO: Microblog startup [in /Users/headshot/microblog/app/__init__.py:53]
+2020-01-22 17:10:12,904 INFO: Microblog startup [in /Users/headshot/microblog/app/__init__.py:53]
+2020-01-22 17:11:07,080 INFO: Microblog startup [in /Users/headshot/microblog/app/__init__.py:53]
+2020-01-22 17:11:34,907 INFO: Microblog startup [in /Users/headshot/microblog/app/__init__.py:53]
+2020-01-22 17:12:00,530 INFO: Microblog startup [in /Users/headshot/microblog/app/__init__.py:53]
+2020-01-22 17:12:48,593 INFO: Microblog startup [in /Users/headshot/microblog/app/__init__.py:53]
+2020-01-22 17:14:17,071 INFO: Microblog startup [in /Users/headshot/microblog/app/__init__.py:53]
+2020-01-22 19:07:00,452 INFO: Microblog startup [in /Users/headshot/microblog/app/__init__.py:53]
+2020-01-22 19:07:23,587 INFO: Microblog startup [in /Users/headshot/microblog/app/__init__.py:53]
+2020-01-25 11:54:12,182 INFO: Microblog startup [in /Users/headshot/microblog/app/__init__.py:74]
+2020-01-25 13:59:36,895 INFO: Microblog startup [in /Users/headshot/microblog/app/__init__.py:76]
