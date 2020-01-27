@@ -60,3 +60,5 @@ Traceback (most recent call last):
   File "/anaconda3/lib/python3.7/json/encoder.py", line 179, in default
     raise TypeError(f'Object of type {o.__class__.__name__} '
 TypeError: Object of type method is not JSON serializable
+2020-01-27 11:22:43,629 INFO: Microblog startup [in /Users/headshot/microblog/app/__init__.py:80]
+2020-01-27 11:22:52,100 INFO: Microblog startup [in /Users/headshot/microblog/app/__init__.py:80]
