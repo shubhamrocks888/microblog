@@ -1,0 +1,109 @@
+2020-01-26 16:06:36,888 ERROR: Exception on /api/users [GET] [in /Users/headshot/microblog/venv/lib/python3.7/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/Users/headshot/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/headshot/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/headshot/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/headshot/microblog/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/headshot/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/headshot/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/headshot/microblog/app/api/users.py", line 17, in get_users
+    return jsonify(data)
+  File "/Users/headshot/microblog/venv/lib/python3.7/site-packages/flask/json/__init__.py", line 370, in jsonify
+    dumps(data, indent=indent, separators=separators) + "\n",
+  File "/Users/headshot/microblog/venv/lib/python3.7/site-packages/flask/json/__init__.py", line 211, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "/anaconda3/lib/python3.7/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/anaconda3/lib/python3.7/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/anaconda3/lib/python3.7/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/Users/headshot/microblog/venv/lib/python3.7/site-packages/flask/json/__init__.py", line 100, in default
+    return _json.JSONEncoder.default(self, o)
+  File "/anaconda3/lib/python3.7/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type method is not JSON serializable
+2020-01-26 16:07:13,005 ERROR: Exception on /api/users/1 [GET] [in /Users/headshot/microblog/venv/lib/python3.7/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/Users/headshot/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/headshot/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/headshot/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/headshot/microblog/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/headshot/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/headshot/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/headshot/microblog/app/api/users.py", line 9, in get_user
+    return jsonify(User.query.get_or_404(id).to_dict())
+  File "/Users/headshot/microblog/app/models.py", line 104, in to_dict
+    'last_seen': self.last_seen.isoformat() + 'Z',
+AttributeError: 'NoneType' object has no attribute 'isoformat'
+2020-01-26 16:27:36,517 INFO: Microblog startup [in /Users/headshot/microblog/app/__init__.py:80]
+2020-01-26 16:28:04,812 ERROR: Exception on /api/users/1/followers [GET] [in /Users/headshot/microblog/venv/lib/python3.7/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/Users/headshot/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/headshot/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/headshot/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/headshot/microblog/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/headshot/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/headshot/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/headshot/microblog/app/api/users.py", line 24, in get_followers
+    data = User.to_collection_dict(user.followers, page, per_page, 'api.get_followers',id=id)
+  File "/Users/headshot/microblog/app/models.py", line 29, in to_collection_dict
+    '_links':{'self':url_for(endpoint,page=page,per_page=per_page),**kwargs,
+  File "/Users/headshot/microblog/venv/lib/python3.7/site-packages/flask/helpers.py", line 370, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "/Users/headshot/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 2215, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "/Users/headshot/microblog/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/headshot/microblog/venv/lib/python3.7/site-packages/flask/helpers.py", line 358, in url_for
+    endpoint, values, method=method, force_external=external
+  File "/Users/headshot/microblog/venv/lib/python3.7/site-packages/werkzeug/routing.py", line 2020, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'api.get_followers' with values ['page', 'per_page']. Did you forget to specify values ['id']?
+2020-01-26 16:28:33,066 ERROR: Exception on /api/users/1/followers [GET] [in /Users/headshot/microblog/venv/lib/python3.7/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/Users/headshot/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/headshot/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/headshot/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/headshot/microblog/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/headshot/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/headshot/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/headshot/microblog/app/api/users.py", line 24, in get_followers
+    data = User.to_collection_dict(user.followers, page, per_page, 'api.get_followers',id=id)
+  File "/Users/headshot/microblog/app/models.py", line 29, in to_collection_dict
+    '_links':{'self':url_for(endpoint,page=page,per_page=per_page),**kwargs,
+  File "/Users/headshot/microblog/venv/lib/python3.7/site-packages/flask/helpers.py", line 370, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "/Users/headshot/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 2215, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "/Users/headshot/microblog/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/headshot/microblog/venv/lib/python3.7/site-packages/flask/helpers.py", line 358, in url_for
+    endpoint, values, method=method, force_external=external
+  File "/Users/headshot/microblog/venv/lib/python3.7/site-packages/werkzeug/routing.py", line 2020, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'api.get_followers' with values ['page', 'per_page']. Did you forget to specify values ['id']?
