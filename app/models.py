@@ -1,7 +1,7 @@
 import base64
 from datetime import datetime, timedelta
 from hashlib import md5
-# import json
+import json
 import os
 from time import time
 from flask import current_app, url_for,request
@@ -21,19 +21,26 @@ followers = db.Table(
 
 class PaginatedAPIMixin(object):
     @staticmethod
-    def to_collection_dict(query,page,per_page,endpoint,**kwargs):
-        resources = query.paginate(page,per_page,False)
+    def to_collection_dict(query, page, per_page, endpoint, **kwargs):
+        resources = query.paginate(page, per_page, False)
         data = {
-                'items':[ item.to_dict for item in resources.items],
-                 'meta':{'page':page,'per_page':per_page,'total_pages':resources.pages,'total_items':resources.total},
-                '_links':{'self':url_for(endpoint,page=page,per_page=per_page),**kwargs,
-                          'next':url_for(endpoint,page=page+1,per_page=per_page,**kwargs) if resources.has_next else None,
-                          'prev': url_for(endpoint, page=page-1, per_page=per_page,**kwargs) if resources.has_prev else None,
-                          }
-
-                }
+            'items': [item.to_dict() for item in resources.items],
+            '_meta': {
+                'page': page,
+                'per_page': per_page,
+                'total_pages': resources.pages,
+                'total_items': resources.total
+            },
+            '_links': {
+                'self': url_for(endpoint, page=page, per_page=per_page,
+                                **kwargs),
+                'next': url_for(endpoint, page=page + 1, per_page=per_page,
+                                **kwargs) if resources.has_next else None,
+                'prev': url_for(endpoint, page=page - 1, per_page=per_page,
+                                **kwargs) if resources.has_prev else None
+            }
+        }
         return data
-
 
 class User(UserMixin, db.Model,PaginatedAPIMixin):
 
@@ -104,7 +111,7 @@ class User(UserMixin, db.Model,PaginatedAPIMixin):
         data = {
                 'id':self.id,
                 'username':self.username,
-                'last_seen': self.last_seen.isoformat() + 'Z',
+                'last_seen': self.last_seen.isoformat(),
                 'about_me':self.about_me,
                 'post_count':self.posts.count(),
                 'follower_count':self.followers.count(),
